@@ -1,6 +1,7 @@
 
 import { Redirect, Route} from "react-router-dom";
 import AuthForm from "./components/Auth/AuthForm";
+import Welcome from "./components/Pages/Welcome";
 
 function App() {
   return (
@@ -9,12 +10,12 @@ function App() {
         <AuthForm/>
       </Route>
 
-      <Route path="*">
+      <Route path="/" exact>
         <Redirect to="/Login"/>
       </Route>
 
       <Route path="/Welcome">
-        <h1>You have Logged in </h1>
+        <Welcome/>
       </Route>
     </div>
   );

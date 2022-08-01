@@ -14,7 +14,7 @@ const AuthForm = () => {
 //   let loginDetails = useSelector(state => state.auth)
 //   console.log(loginDetails.userId)
 
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false)
 
 
