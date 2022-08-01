@@ -12,6 +12,10 @@ function App() {
       <Route path="*">
         <Redirect to="/Login"/>
       </Route>
+
+      <Route path="/Welcome">
+        <h1>You have Logged in </h1>
+      </Route>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import { useState, useRef} from 'react';
-// import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import classes from './AuthForm.module.css';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authActions } from '../../store/index'
 
 const AuthForm = () => {
-//   const history = useHistory()
+  const history = useHistory()
   const emialInputRef = useRef()
   const passwordInputRef = useRef()
   const confirmPasswordInputRef = useRef()
@@ -14,7 +14,7 @@ const AuthForm = () => {
 //   let loginDetails = useSelector(state => state.auth)
 //   console.log(loginDetails.userId)
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
 
 
@@ -27,10 +27,10 @@ const AuthForm = () => {
 
     const enteredEmail = emialInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    const confirmPassword = confirmPasswordInputRef.current.value
-    if(enteredPassword !== confirmPassword){
-        return console.log('Enter valid password')
-    }
+    // const confirmPassword = confirmPasswordInputRef.current.value
+    // if(enteredPassword !== confirmPassword){
+    //     return console.log('Enter valid password')
+    // }
     setIsLoading(true)
 
     
@@ -70,7 +70,7 @@ const AuthForm = () => {
         // dispatch(authActions.login({token: data.idToken, userId: enteredEmail.replace('@','').replace('.','')}))
       localStorage.setItem('token', data.idToken)
       localStorage.setItem('email', enteredEmail.replace('@','').replace('.',''))
-    //   history.replace('/Welcome')
+      history.replace('/Welcome')
   })
     .catch((err) =>{
       alert(err.errorMessage)
