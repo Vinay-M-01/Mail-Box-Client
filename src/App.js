@@ -2,6 +2,7 @@
 import { Redirect, Route} from "react-router-dom";
 import AuthForm from "./components/Auth/AuthForm";
 import Welcome from "./components/Pages/Welcome";
+import TextEditor from './components/Layout/TextEditor'
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       <Route path="/Welcome">
         <Welcome/>
       </Route>
+
+      <TextEditor/>
+
     </div>
   );
 }

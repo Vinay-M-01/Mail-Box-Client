@@ -1,0 +1,48 @@
+.editor{
+    border: 1px solid black;
+    margin: 3rem;
+    height: 500px;
+    border-bottom: 1px solid black;
+
+}
+
+.demo-wrapper{
+    width: 90%;
+    padding-left: 10px;
+}
+
+.tobody{
+    width: 90%;
+    border: none;
+    height:30px;
+    border-bottom: 1px solid black;
+}
+.ccbcc{
+    background-color: white;
+    border: none;
+    height: 30px;
+}
+
+.subjectbody{
+    width: 90%;
+    border: none;
+    height: 30px;
+    border-bottom: 1px solid black;
+
+}
+
+.sendBtn{
+    /* margin-bottom: 3rem;
+    margin-left: 3rem;
+     */
+     float: left;
+     margin-right: 20px;
+     color: white;
+     text-decoration: none;
+     font-size: large;
+     font-weight: bold;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     background-color:  #0f514e;
+     border-radius: 5px;
+     margin-bottom: 4rem;
+}
