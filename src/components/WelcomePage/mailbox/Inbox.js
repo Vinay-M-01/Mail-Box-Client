@@ -18,7 +18,7 @@ const Inbox = (props) => {
   // if(emails) props.setUnread()
   useEffect(() => {
     fetch(
-      `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
+      `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -29,7 +29,7 @@ const Inbox = (props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       fetch(
-        `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
+        `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
       )
         .then((res) => res.json())
         .then((data) => {
