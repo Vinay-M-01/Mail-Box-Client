@@ -8,7 +8,7 @@ const SingleMail = (props) => {
   const endpoint = props.data.ID;
   useEffect(() => {
     fetch(
-      `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
+      `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
       {
         method: "PATCH",
         headers: {
@@ -21,7 +21,7 @@ const SingleMail = (props) => {
     ).then((res) => {
       if (res.ok) {
         fetch(
-          `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
+          `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -33,7 +33,7 @@ const SingleMail = (props) => {
 
   const deleteClickHandler = () => {
     fetch(
-      `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
+      `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
       {
         method: "DELETE",
         headers: {
@@ -43,7 +43,7 @@ const SingleMail = (props) => {
     ).then((res) => {
       if (res.ok) {
         fetch(
-          `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
+          `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
         )
           .then((res) => res.json())
           .then((data) => {
