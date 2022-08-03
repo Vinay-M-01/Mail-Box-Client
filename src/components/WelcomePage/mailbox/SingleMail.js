@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { mailActions } from "../../../context/mailReducer";
 
 const SingleMail = (props) => {
+  const dispatch = useDispatch();
   const cleanUserEmail = useSelector((state) => state.auth.cleanEmail);
   const endpoint = props.data.ID;
   useEffect(() => {
     fetch(
-      `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
+      `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
       {
         method: "PATCH",
         headers: {
@@ -16,22 +18,32 @@ const SingleMail = (props) => {
           isRead: true,
         }),
       }
-    );
-  }, [cleanUserEmail, endpoint]);
+    ).then((res) => {
+      if (res.ok) {
+        fetch(
+          `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            dispatch(mailActions.setInbox(data));
+          });
+      }
+    });
+  }, [cleanUserEmail, endpoint, dispatch]);
 
   const deleteClickHandler = () => {
     fetch(
-      `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
+      `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox/${endpoint}.json`,
       {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
         },
       }
-    ).then(res=>{
-      if(res.ok) {
+    ).then((res) => {
+      if (res.ok) {
         fetch(
-          `https://mailbox-client-f1eeb-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
+          `https://mailboxclient-default-rtdb.firebaseio.com/${cleanUserEmail}/inbox.json`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -39,7 +51,6 @@ const SingleMail = (props) => {
           });
       }
     });
-    
   };
 
   return (
