@@ -37,9 +37,4 @@ describe("Inbox component", () => {
     const EmailslistNode = await screen.findAllByRole('listitem');
     expect(EmailslistNode).not.toHaveLength(0);
   });
-  
 });
-
-
-
-
