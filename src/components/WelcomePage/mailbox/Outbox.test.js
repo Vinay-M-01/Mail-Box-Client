@@ -38,3 +38,4 @@ describe("Outbox component", () => {
     expect(EmailslistNode).not.toHaveLength(0);
   });
 });
+

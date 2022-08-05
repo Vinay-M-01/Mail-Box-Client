@@ -38,3 +38,4 @@ describe("Inbox component", () => {
     expect(EmailslistNode).not.toHaveLength(0);
   });
 });
+

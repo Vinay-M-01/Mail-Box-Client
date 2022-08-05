@@ -70,31 +70,23 @@ const LogIn = () => {
       <Fragment>
         <form className={classes.form} onSubmit={loginHandler}>
           <label htmlFor="email">Email</label>
-          <br />
           <input id="logInEmail" type="email"></input>
-          <br />
           <label htmlFor="password">Password</label>
-          <br />
           <input id="password" type="password"></input>
-          <br />
-          <br/>
           <button id="logInBtn" type="submit">
             Log In
           </button>
-          <br />
         </form>
-        <p onClick={signUpClickHandler} style={{ textDecoration: "underline" }}>
-          Don't have an account?
-          <br />
-          Click heare to Sign Up
-        </p>
-        <br />
-        <p
+        <pre className={classes.forgotPass}
           onClick={forgotPasswordClickHandler}
           style={{ textDecoration: "underline" }}
         >
           Forgot Password?
-        </p>
+        </pre>
+        <pre className={classes.signUp} onClick={signUpClickHandler} style={{ textDecoration: "underline" }}>
+          {`Don't have an account?\nClick heare to Sign Up`}
+        </pre>
+        
       </Fragment>
       {signUp && <Redirect to={"/signup"} />}
       {forgotPass && <Redirect to="/forgotpassword"/>}
